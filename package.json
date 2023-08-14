@@ -1,0 +1,31 @@
+{
+  "name": "kaliber-snap-a-tron",
+  "version": "1.0.0",
+  "repository": "git@github.com:Kaliber/kaliber-snap-a-tron.git",
+  "license": "MIT",
+  "dependencies": {
+    "@kaliber/build": "^0.0.139",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@kaliber/use-render-on-mount": "^1.0.4",
+    "@thiagoelg/node-printer": "^0.6.2",
+    "cross-env": "^7.0.3",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "node-fetch": "2.6",
+    "serialport": "^10.5.0",
+    "sharp": "^0.32.0",
+    "ws": "^8.13.0"
+  },
+  "scripts": {
+    "start": "npm-run-all --parallel watch serve.dev",
+    "watch": "cross-env CONFIG_ENV=prd kaliber-watch",
+    "build": "cross-env NODE_ENV=production kaliber-build",
+    "serve": "kaliber-serve",
+    "serve.dev": "cross-env PORT=8000 CONFIG_ENV=prd kaliber-serve",
+    "lint": "npm-run-all --serial lint.javascript lint.styles",
+    "lint.javascript": "eslint -c .eslintrc --ignore-path .gitignore './**/*.js'",
+    "lint.styles": "stylelint --config .stylelintrc --ignore-path .gitignore './**/*.css'",
+    "websocket-service": "node services/websocket-service.js",
+    "websocket-service.prd": "cross-env CONFIG_ENV=prd yarn websocket-service"
+  }
+}

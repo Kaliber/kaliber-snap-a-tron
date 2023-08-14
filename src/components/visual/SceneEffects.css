@@ -1,0 +1,30 @@
+.effects {
+  position: relative;
+  padding: 25px 110px;
+}
+
+.SizeGlitch {
+  animation: sizeGlitch 100ms ease-in-out infinite;
+}
+
+@keyframes sizeGlitch {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.001);
+  }
+
+  60% {
+    transform: scale(1.003);
+  }
+
+  90% {
+    transform: scale(1.001);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

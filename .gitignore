@@ -1,0 +1,9 @@
+*.DS_Store
+*.log
+*.sublime-workspace
+config/local.js
+node_modules
+sketch
+target
+.babelcache
+/src/public/generated/

@@ -1,0 +1,28 @@
+.component {
+  width: 550px;
+  height: 55px;
+  border: 5px solid var(--color-terminal);
+  padding: 7px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.innerBar {
+  width: 0%;
+  height: 30px;
+  background-color: var(--color-terminal);
+  animation-name: loadBar;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes loadBar {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}

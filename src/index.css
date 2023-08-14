@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  background-color: black;
+  overflow: hidden;
+}
+
+body {
+  color: var(--color-terminal);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-terminal);
+  line-height: var(--line-height-terminal);
+  font-weight: var(--font-weight-base-400);
+}

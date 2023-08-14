@@ -1,0 +1,146 @@
+.confirmationContainer {
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.2);
+  backdrop-filter: blur(1px);
+  z-index: 10;
+}
+
+.confirmationInner {
+  width: 800px;
+  height: 500px;
+  display: flex;
+  gap: 20px;
+  padding: 2rem;
+  border: 10px solid var(--color-terminal);
+  background-color: black;
+}
+
+.confirmationList {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 5px;
+
+  & > p {
+    background-color: var(--color-terminal);
+    padding: 3px;
+    color: black;
+  }
+}
+
+.confirmationCanvas {
+  width: 60%;
+  & > canvas {
+    max-width: 100%;
+  }
+}
+
+.confirmationContent {
+  width: 40%;
+  height: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+
+  & span {
+    font-size: 25px;
+    line-height: 20px;
+  }
+}
+
+.videoContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.actionText {
+  background-color: var(--color-terminal);
+  padding: 3px;
+  color: black;
+}
+
+.contentContainer {
+  width: 80%;
+  position: absolute;
+  background-color: black;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  margin-top: 15px;
+  gap: 10px;
+  padding: 2rem;
+  border: 10px solid var(--color-terminal);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+.video {
+  border: 2px solid var(--color-terminal);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.countDown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > p {
+    color: var(--color-terminal);
+    background-color: black;
+    padding: 2px;
+    font-size: 50px;
+  }
+}
+
+.flash {
+  width: 1280px;
+  height: 900px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: var(--color-terminal);
+  z-index: 60;
+  animation: flashScreen 600ms ease-in-out forwards;
+}
+
+@keyframes flashScreen {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

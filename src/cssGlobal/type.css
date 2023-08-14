@@ -1,0 +1,8 @@
+:root {
+  --font-family-base: 'VT323', monospace;
+  --font-weight-base-400: 400;
+
+  --font-size-18: 18px;
+  --font-size-terminal: 35px;
+  --line-height-terminal: 35px;
+}

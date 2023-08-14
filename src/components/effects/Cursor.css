@@ -1,0 +1,22 @@
+.Cursor {
+  display: inline-block;
+  width: 30px;
+  height: 8px;
+  margin-top: var(--line-height-terminal);
+  background-color: var(--color-terminal);
+  animation: blinkingCursor 0.5s infinite;
+}
+
+@keyframes blinkingCursor {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

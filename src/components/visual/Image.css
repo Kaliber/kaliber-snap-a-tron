@@ -1,0 +1,28 @@
+.image {
+  width: 350px;
+  height: 350px;
+
+  & > img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.fullSizeImage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  object-fit: cover;
+
+  > .fullSizeSrc {
+    min-width: 100vw;
+  }
+}
+
+.fullSizeSrc {
+  display: flex;
+  object-fit: cover !important;
+  filter: brightness(1.5);
+}

@@ -1,0 +1,29 @@
+.DefaultScene {
+  & > pre {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+.LoadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.videoComp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100%;
+}
+
+.video {
+  /* border: 20px solid var(--color-terminal); */
+  max-width: 90%;
+}
+

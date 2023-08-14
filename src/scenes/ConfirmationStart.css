@@ -1,0 +1,29 @@
+.component {
+  width: 750px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  height: 100vh;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  align-items: center;
+  margin-top: 10px;
+  animation: showButton steps(1) 2s forwards;
+  > p {
+    background-color: var(--color-terminal);
+    color: black;
+    padding: 3px;
+  }
+}
+
+@keyframes showButton {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

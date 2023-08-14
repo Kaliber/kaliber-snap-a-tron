@@ -1,0 +1,73 @@
+.confirmationContainer {
+  width: 95vw;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.2);
+  backdrop-filter: blur(1px);
+}
+
+.confirmationInner {
+  width: 700px;
+  height: 400px;
+  padding: 2rem;
+  border: 10px solid var(--color-terminal);
+  background-color: black;
+}
+
+.confirmationList {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 5px;
+
+  & > p {
+    background-color: var(--color-terminal);
+    padding: 3px;
+    color: black;
+  }
+}
+
+
+.actionText {
+  background-color: var(--color-terminal);
+  padding: 3px;
+  color: black;
+}
+
+.contentContainer {
+  width: 80%;
+  position: absolute;
+  background-color: black;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  margin-top: 15px;
+  gap: 10px;
+  padding: 2rem;
+  border: 10px solid var(--color-terminal);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+.promptLines {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

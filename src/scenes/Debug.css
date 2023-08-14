@@ -1,0 +1,9 @@
+.Debug {
+  font-family: var(--font-family-base);
+
+  & > pre {
+    font-family: var(--font-family-base);
+    font-size: 30px;
+    line-height: 30px;
+  }
+}

@@ -1,0 +1,162 @@
+.outputContainer {
+  width: 60%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.outputImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.outputWrapper {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.outputText {
+  width: 40%;
+  padding: 2rem;
+  margin-left: auto;
+  margin-right: 18px;
+  height: 100vh;
+  border: 8px solid var(--color-terminal);
+}
+
+.thankYouContainer {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-terminal);
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  z-index: 10;
+  padding: 1rem 5rem;
+}
+
+.Buttons {
+  & > p {
+    background-color: black;
+    color: var(--color-terminal);
+    padding: 4px;
+  }
+}
+
+.rebootContainer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.rebootAnimation {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-terminal);
+  animation: rebootAnim 0.8s cubic-bezier(1, 0, 0, 1) forwards;
+}
+
+@keyframes rebootAnim {
+  0% {
+    transform: scaleY(1);
+  }
+
+  90% {
+    transform: scaleY(0.1) scaleX(1);
+  }
+
+  100% {
+    transform: scaleY(0) scaleX(0);
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+
+.loadingInner {
+  width: 800px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: black;
+  color: var(--color-terminal);
+}
+
+.loadingBar {
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  border: 3px solid var(--color-terminal);
+}
+
+.loadingBarInner {
+  height: 15px;
+  background-color: var(--color-terminal);
+  transition: width 200ms ease;
+}
+
+.glitchContainer {
+  width: 1280px;
+  height: 700px;
+  overflow: hidden;
+  position: fixed;
+  z-index: 60;
+  top: 0;
+  left: 0;
+}
+
+.glitchBlock {
+  width: 25px;
+  height: 40px;
+  position: absolute;
+  display: block;
+  background-color: black;
+}
+
+.turnText {
+  will-change: transform;
+  animation: turnTextAnimation 2s ease-in-out infinite;
+}
+
+@keyframes turnTextAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

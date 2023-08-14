@@ -1,0 +1,9 @@
+.String {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  color: var(--color-terminal);
+  width: auto;
+  font-size: var(--font-size-terminal);
+  line-height: var(--line-height-terminal);
+}
