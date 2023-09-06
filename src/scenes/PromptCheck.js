@@ -77,7 +77,7 @@ export function PromptCheck() {
       setFirstCat(true)
     } else if (event.categoryOne === 1) {
       if (firstPrompt) {
-        setError('First category not connected')
+        setError('First, plug into a category on the right. Second, connect with your choice on the left.')
       }
       setFirstCat(false)
       setAllSelected(false)
@@ -91,7 +91,7 @@ export function PromptCheck() {
       setSecondCat(true)
     } else if (event.categoryTwo === 1) {
       if (secondPrompt) {
-        setError('Second category not connected')
+        setError('First, plug into a category on the right. Second, connect with your choice on the left.')
       }
       setSecondCat(false)
       setAllSelected(false)
@@ -105,7 +105,7 @@ export function PromptCheck() {
       setThirdCat(true)
     } else if (event.categoryThree === 1) {
       if (thirdPrompt) {
-        setError('Third category not connected')
+        setError('First, plug into a category on the right. Second, connect with your choice on the left.')
       }
       setThirdCat(false)
       setAllSelected(false)
@@ -134,7 +134,7 @@ export function PromptCheck() {
       setError('Too many first inputs')
     }
     if (event.firstInput && !firstCat) {
-      setError('First category not connected')
+      setError('First, plug into a category on the right. Second, connect with your choice on the left.')
       setFirstPrompt(event.firstInput)
     }
     if (event.secondInput && secondCat) {
@@ -153,7 +153,7 @@ export function PromptCheck() {
       setError('Too many second inputs')
     }
     if (event.secondInput && !secondCat) {
-      setError('Second category not connected')
+      setError('First, plug into a category on the right. Second, connect with your choice on the left. ')
       setSecondPrompt(event.secondInput)
     }
     if (event.thirdInput && thirdCat) {
@@ -172,7 +172,7 @@ export function PromptCheck() {
       setError('Too many third inputs')
     }
     if (event.thirdInput && !thirdCat) {
-      setError('Third category not connected')
+      setError('First, plug into a category on the right. Second, connect with your choice on the left. ')
       setThirdPrompt(event.thirdInput)
     }
 
@@ -228,9 +228,9 @@ export function PromptCheck() {
         <div className={styles.confirmationContainer}>
           <div className={styles.confirmationInner}>
             {error}
-            <div className={styles.Buttons}>
-              <p>Add/Remove one or more entries</p>
-            </div>
+            {/* <div className={styles.Buttons}>
+              <p>Press [GREEN BUTTON] to continue</p>
+            </div> */}
           </div>
         </div>
       }
@@ -238,14 +238,14 @@ export function PromptCheck() {
       { allSelected &&
       <div className={styles.confirmationContainer}>
         <div className={styles.confirmationInner}>
-          <p>Your current selection</p>
+          <p>This is your current selection:</p>
           <div className={styles.confirmationList}>
             <p><b>{categories.first}:</b> {firstPrompt}</p>
             <p><b>{categories.second}:</b> {secondPrompt}</p>
             <p><b>{categories.third}:</b> {thirdPrompt}</p>
           </div>
           <div className={styles.Buttons}>
-            <p>[GREEN / LEFT] Accept</p> <p>[RED / RIGHT] Change input</p>
+            <p>[GREEN BUTTON] Confirm selection</p> <p>[RED BUTTON] Change input</p>
           </div>
         </div>
       </div>
