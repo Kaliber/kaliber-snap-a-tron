@@ -76,7 +76,7 @@ export function Picture() {
     if (localStorage.getItem('wipe')) {
       return
     }
-    if (input.buttonPressed === 'red' && preview && !processing && !instructions) {
+    if ((input.buttonPressed === 'red' || input.b) && preview && !processing) {
       setPreview(false)
       setProcessing(true)
       setTakePicture(false)
@@ -84,13 +84,8 @@ export function Picture() {
     if ((input.buttonPressed === 'green' || input.p) && preview && !processing && !instructions) {
       setEvent('goToPrompt')
     }
-    if ((input.buttonPressed === 'green' || input.p) && instructions) {
-      setInstructions(false)
-      setTimeout(() => {
-        setAllowpicture(true)
-      }, 1000)
-    }
-    if ((input.buttonPressed === 'green' || input.p) && !instructions && allowPicture) {
+
+    if ((input.buttonPressed === 'green' || input.p)) {
       setCountdown('3..')
       setTakePicture(true)
     }
@@ -107,7 +102,6 @@ export function Picture() {
       </>
       }
 
-
       <div className={styles.videoContainer}>
         <div className={styles.video} style={{ display: (!preview ? 'block' : 'none'), opacity: (!instructions ? '1' : '0.7') }}>
           <video style={{ transform: 'scaleX(-1)' }} id="video" {...{ width, height }} autoPlay ref={videoRef} />
@@ -118,7 +112,7 @@ export function Picture() {
             </div>
           }
         </div>
-        { instructions &&
+        { (instructions && !preview && !showCountdown) &&
         <div className={styles.videoInstructions}>
           <p>Thanks for listening. You can put the phone down. <br /><br /> First, we are going to take a photo. Look into the camera and press the [GREEN BUTTON] to capture yourself.</p>
         </div>
