@@ -8,7 +8,7 @@ export function ConfirmationStart() {
     <div className={styles.component}>
       <AnimatedString string={introText} delayMultiplier={0.015} />
       <div className={styles.buttons}>
-        <p>[GREEN / LEFT] Initiate protocol</p>
+        <p>Press [GREEN / LEFT] to initiate protocol</p>
       </div>
     </div>
   )

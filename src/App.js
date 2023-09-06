@@ -20,9 +20,9 @@ export default function App({ config }) {
   // ? Scene's are currently mapped in order of array index.
 
   const scenes = [
+    <Picture />,
     <DefaultScene />,
     <SceneVideo />,
-    <Picture />,
     <PromptCheck />,
     <GenerateImage />,
     <Reboot />,

@@ -5,7 +5,7 @@ import { WipePrompt } from '/components/visual/WipePrompt'
 
 
 export function SceneController({ scenes }) {
-  const [activeScene, setActiveScene] = React.useState(null)
+  const [activeScene, setActiveScene] = React.useState(scenes[0])
   const debug = false
   const [input] = useEventEmitter()
 
@@ -17,7 +17,6 @@ export function SceneController({ scenes }) {
 
   }, [activeScene])
   React.useEffect(() => {
-
     // ? For debugging
     if (events && events.length > 3) {
       appendEvents(events => events.slice(1))

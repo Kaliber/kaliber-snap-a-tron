@@ -106,12 +106,7 @@ export function Picture() {
         </audio>
       </>
       }
-      { instructions &&
-        <div className={styles.contentContainer}>
-          <p>We are going to capture a photo. Please look into the camera and press the [GREEN / LEFT] button to capture yourself. <br /><br /> You can put the phone down. ☻</p>
-          <p className={styles.actionText}>[GREEN / LEFT] Got it</p>
-        </div>
-      }
+
 
       <div className={styles.videoContainer}>
         <div className={styles.video} style={{ display: (!preview ? 'block' : 'none'), opacity: (!instructions ? '1' : '0.7') }}>
@@ -123,6 +118,11 @@ export function Picture() {
             </div>
           }
         </div>
+        { instructions &&
+        <div className={styles.videoInstructions}>
+          <p>Thanks for listening. You can put the phone down. <br /><br /> First, we are going to take a photo. Look into the camera and press the [GREEN BUTTON] to capture yourself.</p>
+        </div>
+        }
       </div>
 
       <div style={{ display: (preview ? 'flex' : 'none') }} className={styles.confirmationContainer}>

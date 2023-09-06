@@ -11,7 +11,7 @@
   gap: 15px;
   align-items: center;
   margin-top: 10px;
-  animation: showButton steps(1) 2s forwards;
+  animation: showButton steps(1) 4s forwards;
   > p {
     background-color: var(--color-terminal);
     color: black;
