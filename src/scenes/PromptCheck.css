@@ -47,15 +47,12 @@
 }
 
 .contentContainer {
-  width: 80%;
-  position: absolute;
+  width: 100%;
   background-color: black;
 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
-  margin-top: 15px;
+
+  margin-top: auto;
   gap: 10px;
   padding: 2rem;
   border: 10px solid var(--color-terminal);

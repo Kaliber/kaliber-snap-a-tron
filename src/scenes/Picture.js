@@ -81,7 +81,7 @@ export function Picture() {
       setProcessing(true)
       setTakePicture(false)
     }
-    if ((input.buttonPressed === 'green' || input.p) && preview && !processing && !instructions) {
+    if ((input.buttonPressed === 'green' || input.p) && preview && !processing) {
       setEvent('goToPrompt')
     }
 

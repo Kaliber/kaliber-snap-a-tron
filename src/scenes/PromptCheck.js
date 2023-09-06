@@ -36,9 +36,6 @@ export function PromptCheck() {
   // ? Sets error and allows input of error as string
   const [error, setError] = React.useState(null)
 
-  // ? Checks if the instructions have been read
-  const [instructions, setInstructions] = React.useState(true)
-
   const [event, setEvent] = useEventEmitter()
 
   React.useEffect(() => {
@@ -47,7 +44,6 @@ export function PromptCheck() {
     const generatedObject = JSON.parse(localStorage.getItem('prompt'))
 
     if (hasGenerated) {
-      setInstructions(false)
       if (generatedObject) {
         setFirstPrompt(generatedObject.first)
         setSecondPrompt(generatedObject.second)
@@ -63,7 +59,6 @@ export function PromptCheck() {
       } })
     }
     if (hasPrompt) {
-      setInstructions(false)
       setFirstPrompt(generatedObject.first)
       setSecondPrompt(generatedObject.second)
       setThirdPrompt(generatedObject.third)
@@ -74,10 +69,6 @@ export function PromptCheck() {
   }, [])
 
   React.useEffect(() => {
-    if (event.categoryOne === 0 || event.categoryTwo === 0 || event.categoryThree === 0 || event.categoryOne === 1 || event.categoryTwo === 1 || event.categoryThree === 1) {
-      setInstructions(false)
-    }
-
     if (event.categoryOne === 0) {
       if (firstPrompt) {
         setError(null)
@@ -125,10 +116,6 @@ export function PromptCheck() {
   React.useEffect(() => {
     if (localStorage.getItem('wipe')) {
       return
-    }
-
-    if (event.firstInput || event.secondInput || event.thirdInput || event.removedFirst || event.removedSecond || event.removedThird || event.tooManyFirst || event.tooManySecond || event.tooManyThird) {
-      setInstructions(false)
     }
 
     if (event.firstInput && firstCat) {
@@ -189,10 +176,6 @@ export function PromptCheck() {
       setThirdPrompt(event.thirdInput)
     }
 
-    if (event.buttonPressed === 'green' && instructions) {
-      setInstructions(false)
-    }
-
     if (allSelected && event.buttonPressed === 'green') {
       const promptObj = {
         first: firstPrompt,
@@ -226,14 +209,9 @@ export function PromptCheck() {
 
   return (
     <div style={{ height: '100vh' }}>
-      { instructions &&
-        <div className={styles.contentContainer}>
-          <p>You are going to provide input for our machine. Please select a category by plugging in a cable to a category. Then plug in a cable to select an item.</p>
-          <p className={styles.actionText}>[GREEN / LEFT] Got it</p>
-        </div>
-      }
 
-      <h1>Plug-in selection.</h1>
+
+      <h1>Plug-in selection</h1>
       <br />
       <div className={styles.promptLines}>
         <div style={{ display: 'flex', justifyContent: 'flex-start' }}><b style={{ backgroundColor: ( firstCat ? '#eaff00' : ' ' ), color: ( firstCat ? 'black' : '' ) }}>{categories.first}:</b>{ !error && <> {firstCat ? '>' : 'No cable connected'} {firstPrompt && <AnimatedString string={firstPrompt} />} </>}</div>
@@ -241,7 +219,11 @@ export function PromptCheck() {
         <div style={{ display: 'flex', justifyContent: 'flex-start' }}><b style={{ backgroundColor: ( thirdCat ? '#eaff00' : ' ' ), color: ( thirdCat ? 'black' : '' ) }}>{categories.third}:</b>{ !error && <> {thirdCat ? '>' : 'No cable connected'} {thirdPrompt && <AnimatedString string={thirdPrompt} />} </>}</div>
       </div>
       <br />
-
+      <div className={styles.contentContainer}>
+        <p>It’s time to put the machine to work. Using the plugs, you provide input for the machine. </p>
+        <p>1) Plug into a category on the right.</p>
+        <p>2) Use a second plug to connect with your selection on the left. </p>
+      </div>
       { error &&
         <div className={styles.confirmationContainer}>
           <div className={styles.confirmationInner}>
