@@ -157,7 +157,7 @@ export function GenerateImage() {
             {output && <img className={styles.outputImage} src={output.srcBase64} alt="overlay" /> }
           </div>
           <div className={styles.outputText}>
-            <p>Thank you for participating in this trial. If you are happy with the result please send the picture to the printer by turning the wheel clock-wise. If not press the [RED / RIGHT] button to enter a different prompt.</p>
+            <p>Look at that! <br /> Want to print your portrait? Turn the wheel on the machine clock-wise. <br /> <br /> Want to try out a different look, press the [RED BUTTON] to select a different artist, style or material. </p>
             {cantRead && <h2 className={styles.turnText}>TURN THE WHEEL TO PRINT!</h2>}
           </div>
         </div>
