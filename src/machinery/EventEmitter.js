@@ -238,15 +238,14 @@ function useCategoryAndInput({ websocket }) {
       thirdInput,
     }
   }
-
-  previousCategoryOne = categoryOne
-  previousCategoryTwo = categoryTwo
-  previousCategoryThree = categoryThree
-  previousFirstInput = firstInput
-  previousSecondInput = secondInput
-  previousThirdInput = thirdInput
-
-  return undefined
+  return {
+    categoryOne,
+    categoryTwo,
+    categoryThree,
+    firstInput,
+    secondInput,
+    thirdInput,
+  }
 }
 
 function getSelectedValue({ array }) {
