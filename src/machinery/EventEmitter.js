@@ -14,6 +14,8 @@ export function EventEmitter({ children }) {
   const config = useClientConfig()
   const websocket = useWebsocketData()
   const websocketData = websocket[0]
+  const buttons = websocketData?.data?.input?.buttons
+  const encoder = websocketData?.data?.input?.encoder
   const distance = websocketData?.data?.input?.distance
 
   const { categoryOne, categoryTwo, categoryThree, firstInput, secondInput, thirdInput } = useCategoryAndInput({ websocket })
@@ -21,6 +23,16 @@ export function EventEmitter({ children }) {
   const firstInputArray = getSelectedValue({ array: Object.values(firstInput ?? {}) })
   const secondInputArray = getSelectedValue({ array: Object.values(secondInput ?? {}) })
   const thirdInputArray = getSelectedValue({ array: Object.values(thirdInput ?? {}) })
+
+  function getSelectedValue({ array }) {
+    let selected = []
+    array.map((x, xid) => {
+      if (x) {
+        selected.push(xid)
+      }
+    })
+    return selected
+  }
 
   const checkFirstInput = firstInputArray.length > 0 ?? false
   const checkMultipleFirstInput = firstInputArray.length > 1 ?? false
@@ -43,7 +55,7 @@ export function EventEmitter({ children }) {
     } else if (!checkFirstInput) {
       setData({ removedFirst: true })
     }
-  }, [checkFirstInput, checkMultipleFirstInput, firstInputArray])
+  }, [checkFirstInput, checkMultipleFirstInput])
 
   React.useEffect(() => {
     if (checkMultipleSecondInput) {
@@ -53,7 +65,7 @@ export function EventEmitter({ children }) {
     } else if (!checkSecondInput) {
       setData({ removedSecond: true })
     }
-  }, [checkSecondInput, checkMultipleSecondInput, secondInputArray])
+  }, [checkSecondInput, checkMultipleSecondInput])
 
   React.useEffect(() => {
     if (checkMultipleThirdInput) {
@@ -63,7 +75,7 @@ export function EventEmitter({ children }) {
     } else if (!checkThirdInput) {
       setData({ removedThird: true })
     }
-  }, [checkThirdInput, checkMultipleThirdInput, thirdInputArray])
+  }, [checkThirdInput, checkMultipleThirdInput])
 
   // * Cat 1 listener
   React.useEffect(() => {
@@ -129,7 +141,7 @@ export function EventEmitter({ children }) {
       debounceButton()
     }
     return () => { }
-  }, [websocketData?.data?.input?.buttons, userPressed])
+  }, [buttons])
 
   // * Encoder listener
   React.useEffect(() => {
@@ -148,7 +160,7 @@ export function EventEmitter({ children }) {
       forwardOrBackwards({ curr: websocketData?.data?.input?.encoder })
     }
     return () => { }
-  }, [websocketData?.data?.input?.encoder, oldValue])
+  }, [encoder])
 
   // * Distance listener
   React.useEffect(() => {
@@ -190,7 +202,7 @@ export function EventEmitter({ children }) {
     }
 
     return () => { }
-  }, [distance, config.settings.personDetectionThresHold, oldDistance, personFound])
+  }, [distance])
 
 
   React.useEffect(() => {
@@ -202,14 +214,6 @@ export function EventEmitter({ children }) {
   return <eventEmitterData.Provider value={[data, setEvent]} {...{ children }} />
 }
 
-
-let previousCategoryOne,
-  previousCategoryTwo,
-  previousCategoryThree,
-  previousFirstInput,
-  previousSecondInput,
-  previousThirdInput = null
-
 function useCategoryAndInput({ websocket }) {
   const websocketData = websocket[0]
 
@@ -220,24 +224,6 @@ function useCategoryAndInput({ websocket }) {
   const secondInput = websocketData?.data?.input?.input_3
   const thirdInput = websocketData?.data?.input?.input_4
 
-
-  if (categoryOne !== previousCategoryOne || categoryTwo !== previousCategoryTwo || categoryThree !== previousCategoryThree || firstInput !== previousFirstInput || secondInput !== previousSecondInput || thirdInput !== previousThirdInput) {
-    previousCategoryOne = categoryOne
-    previousCategoryTwo = categoryTwo
-    previousCategoryThree = categoryThree
-    previousFirstInput = firstInput
-    previousSecondInput = secondInput
-    previousThirdInput = thirdInput
-
-    return {
-      categoryOne,
-      categoryTwo,
-      categoryThree,
-      firstInput,
-      secondInput,
-      thirdInput,
-    }
-  }
   return {
     categoryOne,
     categoryTwo,
@@ -246,16 +232,7 @@ function useCategoryAndInput({ websocket }) {
     secondInput,
     thirdInput,
   }
-}
 
-function getSelectedValue({ array }) {
-  let selected = []
-  array.map((x, xid) => {
-    if (x) {
-      selected.push(xid)
-    }
-  })
-  return selected
 }
 
 export function useEventEmitter() {
