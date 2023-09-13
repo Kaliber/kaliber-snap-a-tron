@@ -84,11 +84,11 @@ export function Picture() {
       setEvent('goToPrompt')
     }
 
-    if ((input.buttonPressed === 'green')) {
+    if ((input.buttonPressed === 'green' || input.p)) {
       setCountdown('3..')
       setTakePicture(true)
     }
-  }, [input, setEvent, preview, processing, takePicture ])
+  }, [input])
 
   return (
     <div>
