@@ -84,11 +84,17 @@ export function Picture() {
       setEvent('goToPrompt')
     }
 
-    if ((input.buttonPressed === 'green')) {
+    if ((input.buttonPressed === 'green' && allowPicture)) {
       setCountdown('3..')
       setTakePicture(true)
     }
   }, [input])
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setAllowpicture(true)
+    }, 1000)
+  }, [])
 
   return (
     <div>
