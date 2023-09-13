@@ -75,16 +75,16 @@ export function Picture() {
     if (localStorage.getItem('wipe')) {
       return
     }
-    if ((input.buttonPressed === 'red' || input.b) && preview && !processing) {
+    if ((input.buttonPressed === 'red') && preview && !processing) {
       setPreview(false)
       setProcessing(true)
       setTakePicture(false)
     }
-    if ((input.buttonPressed === 'green' || input.p) && preview && !processing) {
+    if ((input.buttonPressed === 'green') && preview && !processing) {
       setEvent('goToPrompt')
     }
 
-    if ((input.buttonPressed === 'green' || input.p)) {
+    if ((input.buttonPressed === 'green')) {
       setCountdown('3..')
       setTakePicture(true)
     }
