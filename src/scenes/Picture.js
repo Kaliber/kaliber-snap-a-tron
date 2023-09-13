@@ -7,7 +7,6 @@ export function Picture() {
   const canvasRef = React.useRef()
   const [input, setEvent] = useEventEmitter()
 
-
   const [preview, setPreview] = React.useState(null)
   const [allowPicture, setAllowpicture] = React.useState(false)
   const [processing, setProcessing] = React.useState(true)
@@ -85,11 +84,11 @@ export function Picture() {
       setEvent('goToPrompt')
     }
 
-    if ((input.buttonPressed === 'green' || input.p)) {
+    if ((input.buttonPressed === 'green')) {
       setCountdown('3..')
       setTakePicture(true)
     }
-  }, [input])
+  }, [input, setEvent, preview, processing, takePicture ])
 
   return (
     <div>
