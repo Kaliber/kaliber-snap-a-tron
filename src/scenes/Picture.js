@@ -140,6 +140,4 @@ export function Picture() {
       </div>
     </div>
   )
-
-
 }

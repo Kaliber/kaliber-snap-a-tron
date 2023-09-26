@@ -77,7 +77,7 @@ export function PromptCheck() {
       setFirstCat(true)
     } else if (event.categoryOne === 1) {
       if (firstPrompt) {
-        setError('First, plug into a category on the right. Second, connect with your choice on the left.')
+        setError('Plug in did not work. Change the order.  First, plug into a category (artist, style and material) on the right. Second, plug into your choice on the left. ')
       }
       setFirstCat(false)
       setAllSelected(false)
@@ -91,7 +91,7 @@ export function PromptCheck() {
       setSecondCat(true)
     } else if (event.categoryTwo === 1) {
       if (secondPrompt) {
-        setError('First, plug into a category on the right. Second, connect with your choice on the left.')
+        setError('Plug in did not work. Change the order.  First, plug into a category (artist, style and material) on the right. Second, plug into your choice on the left. ')
       }
       setSecondCat(false)
       setAllSelected(false)
@@ -105,7 +105,7 @@ export function PromptCheck() {
       setThirdCat(true)
     } else if (event.categoryThree === 1) {
       if (thirdPrompt) {
-        setError('First, plug into a category on the right. Second, connect with your choice on the left.')
+        setError('Plug in did not work. Change the order.  First, plug into a category (artist, style and material) on the right. Second, plug into your choice on the left. ')
       }
       setThirdCat(false)
       setAllSelected(false)
@@ -134,7 +134,7 @@ export function PromptCheck() {
       setError('Too many first inputs')
     }
     if (event.firstInput && !firstCat) {
-      setError('First, plug into a category on the right. Second, connect with your choice on the left.')
+      setError('Plug in did not work. Change the order.  First, plug into a category (artist, style and material) on the right. Second, plug into your choice on the left. ')
       setFirstPrompt(event.firstInput)
     }
     if (event.secondInput && secondCat) {
@@ -153,7 +153,7 @@ export function PromptCheck() {
       setError('Too many second inputs')
     }
     if (event.secondInput && !secondCat) {
-      setError('First, plug into a category on the right. Second, connect with your choice on the left. ')
+      setError('Plug in did not work. Change the order.  First, plug into a category (artist, style and material) on the right. Second, plug into your choice on the left.  ')
       setSecondPrompt(event.secondInput)
     }
     if (event.thirdInput && thirdCat) {
@@ -172,7 +172,7 @@ export function PromptCheck() {
       setError('Too many third inputs')
     }
     if (event.thirdInput && !thirdCat) {
-      setError('First, plug into a category on the right. Second, connect with your choice on the left. ')
+      setError('Plug in did not work. Change the order.  First, plug into a category (artist, style and material) on the right. Second, plug into your choice on the left.  ')
       setThirdPrompt(event.thirdInput)
     }
 
