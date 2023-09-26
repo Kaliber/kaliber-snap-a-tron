@@ -29,7 +29,6 @@ export default function Index({ location, data }) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
         {stylesheet}
         {rollbar({ accessToken: config.rollbar.post_client_item })}
         {polyfill(['default', 'es2015', 'es2016', 'es2017', 'es2018', 'es2019'])}
