@@ -59,7 +59,10 @@ export function Picture() {
 
   React.useEffect(
     () => {
-      if (!videoRef.current || !navigator.mediaDevices.getUserMedia) return
+      if (!videoRef.current || !navigator.mediaDevices.getUserMedia) {
+        alert('Failed to get camera, are you sure its plugged in correctly? You can try to reboot.')
+        return
+      }
 
       navigator.mediaDevices.getUserMedia({ video: { width, height } })
         .then((stream) => { videoRef.current.srcObject = stream })
