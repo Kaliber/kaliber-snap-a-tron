@@ -101,19 +101,6 @@ export function EventEmitter({ children }) {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
 
-  // * Video listener
-  React.useEffect(() => {
-    setInterval(() => {
-      const videos = document.querySelectorAll('video')
-      videos.forEach((video) => {
-        video.addEventListener('ended', () => {
-          setData({ ...data, videoEnded: true })
-        })
-      })
-    }, 1000)
-    return () => { }
-  }, [data])
-
   // * Button listener
   React.useEffect(() => {
     const allowButtonPress = () => {

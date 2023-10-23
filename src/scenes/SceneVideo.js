@@ -10,12 +10,14 @@ export function SceneVideo() {
   const [{ phone }] = useWebsocketData()
   const videoRef = React.useRef(null)
 
-
-
   React.useEffect(() => {
     if (videoRef.current) {
       videoRef.current.addEventListener('canplaythrough', () => {
         videoRef.current.play()
+      })
+
+      videoRef.current.addEventListener('ended', () => {
+        setEvent('videoEnded')
       })
     }
   }, [])
