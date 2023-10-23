@@ -41,6 +41,7 @@ inputParser.on('data', (data) => {
     state.lastInputState = JSON.stringify(parsedData)
   } catch (e) {
     console.log('A json parsing error has occurred but this is probably not a problem')
+    console.error(e)
   }
 })
 
@@ -54,6 +55,7 @@ phoneParser.on('data', (data) => {
     state.lastPhoneState = JSON.stringify(parsedData)
   } catch (e) {
     console.log('A json parsing error has occurred but this is probably not a problem')
+    console.error(e)
   }
 })
 
