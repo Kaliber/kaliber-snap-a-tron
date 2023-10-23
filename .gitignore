@@ -8,4 +8,4 @@ target
 .babelcache
 /src/public/generated/
 services/machinery/data.json
-services/machinery/errors.json
+errors.json
