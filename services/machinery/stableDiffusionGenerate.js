@@ -83,6 +83,7 @@ async function generate({ src, prompts, out, onProgress }) {
     })
   } catch (error) {
     console.log('There was an error', error)
+    throw error
   } finally {
     progressInterval && clearInterval(progressInterval)
   }
