@@ -26,14 +26,17 @@ export function SceneController({ scenes }) {
 
     // Check if video has ended and switch scene to next one
     if (input.videoEnded) {
+      console.log('Input = videoEnded')
       setActiveScene(scenes[2])
     }
 
     if (input.playMovie) {
+      console.log('Input = playMovie')
       setActiveScene(scenes[1])
     }
 
     if (input.stopMovie) {
+      console.log('Input = stopMovie')
       setActiveScene(scenes[2])
     }
 
@@ -59,10 +62,12 @@ export function SceneController({ scenes }) {
     }
 
     if (input.reboot) {
+      console.log('Input = reboot')
       setActiveScene(scenes[5])
     }
 
     if (input.startover) {
+      console.log('Input = startover')
       setActiveScene(null)
     }
 
@@ -72,6 +77,7 @@ export function SceneController({ scenes }) {
 
     if (input.personLeft && activeScene && activeScene !== scenes[5]) {
       setWiping(true)
+      console.log('Going to wipe data, in last if')
       localStorage.setItem('wipe', 'true')
     }
   }, [input])
@@ -95,7 +101,7 @@ export function SceneController({ scenes }) {
         {wipe && <WipePrompt />}
         {activeScene}
         { debug &&
-          <div style={{ overflow: 'hidden', maxWidth: '100%'}}>
+          <div style={{ overflow: 'hidden', maxWidth: '100%' }}>
             <div style={{ display: 'flex', fontSize: '30px' }}>{events}</div>
           </div>
         }
@@ -110,7 +116,7 @@ export function SceneController({ scenes }) {
       <>
         <WaitingScene />
         { debug &&
-          <div style={{ overflow: 'hidden', maxWidth: '90%'}}>
+          <div style={{ overflow: 'hidden', maxWidth: '90%' }}>
             <div style={{ display: 'flex' }}>{events}</div>
           </div>
         }
