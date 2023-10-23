@@ -106,6 +106,7 @@ wss.on('connection', (ws) => {
             .catch((e) => {
               state.processing = false
               console.log(e)
+              storeError(e)
             })
           break
         case PRINT_IMAGE:
@@ -118,6 +119,7 @@ wss.on('connection', (ws) => {
             })
             .catch(err => {
               console.warn(err)
+              storeError(e)
             })
 
           break

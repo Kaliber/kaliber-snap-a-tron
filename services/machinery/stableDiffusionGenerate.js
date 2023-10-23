@@ -92,7 +92,7 @@ async function generate({ src, prompts, out, onProgress }) {
   const images = json.images
   const [image] = images.length ? images : []
 
-  console.log(json)
+  // console.log(json)
 
   if (image) {
     fs.writeFileSync(out, image, 'base64')
