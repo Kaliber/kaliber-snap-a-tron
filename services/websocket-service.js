@@ -121,7 +121,7 @@ wss.on('connection', (ws) => {
             })
             .catch(err => {
               console.warn(err)
-              storeError(e)
+              storeError(err)
             })
 
           break
