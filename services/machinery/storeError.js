@@ -14,7 +14,7 @@ function storeError(error) {
     // Add the new error with current date to the array
     const currentDate = new Date()
     const formattedDate = currentDate.toISOString() // Adjust format as needed
-    existingErrors.push({ date: formattedDate, error })
+    existingErrors.push({ date: formattedDate, error: JSON.stringify(error, null, 2) })
 
     // Write the updated array back to the file
     fs.writeFileSync('errors.json', JSON.stringify(existingErrors, null, 2))
