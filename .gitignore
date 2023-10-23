@@ -7,3 +7,4 @@ sketch
 target
 .babelcache
 /src/public/generated/
+services/machinery/data.json
