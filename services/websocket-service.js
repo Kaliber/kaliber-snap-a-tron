@@ -74,7 +74,7 @@ wss.on('connection', (ws) => {
     try {
       const input = e.toString()
       const { event, data } = JSON.parse(input)
-      console.log(event, data)
+      // console.log(event, data)
 
       switch (event) {
         case IMAGE_CAPTURED:
