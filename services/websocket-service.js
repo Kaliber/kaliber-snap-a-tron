@@ -6,6 +6,7 @@ const { ReadlineParser } = require('@serialport/parser-readline')
 const { server } = require('@kaliber/config')
 const { IMAGE_CAPTURED, IMAGE_PROCESSED, PRINT_IMAGE, IMAGE_SEND_TO_PRINTER, RING_PHONE, MUTE_PHONE, DATA, PHONE_DATA, PROCES_STEP, HANDLE_LED } = require('./machinery/WebsocketEvents.js')
 const { processImage } = require('./machinery/processImage')
+const { storeError } = require('./machinery/storeError')
 const { printFile } = require('./machinery/printFile')
 const { WebSocketServer } = require('ws')
 
@@ -41,7 +42,7 @@ inputParser.on('data', (data) => {
     state.lastInputState = JSON.stringify(parsedData)
   } catch (e) {
     console.log('A json parsing error has occurred but this is probably not a problem')
-    console.error(e)
+    storeError(e)
   }
 })
 
@@ -55,7 +56,7 @@ phoneParser.on('data', (data) => {
     state.lastPhoneState = JSON.stringify(parsedData)
   } catch (e) {
     console.log('A json parsing error has occurred but this is probably not a problem')
-    console.error(e)
+    storeError(e)
   }
 })
 
@@ -142,6 +143,7 @@ wss.on('connection', (ws) => {
       }
     } catch (e) {
       console.warn(e)
+      storeError(e)
     }
   })
 })
