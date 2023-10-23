@@ -41,7 +41,8 @@ inputParser.on('data', (data) => {
 
     state.lastInputState = JSON.stringify(parsedData)
   } catch (e) {
-    console.log('A json parsing error has occurred but this is probably not a problem')
+    console.log('[inputParser] - A json parsing error has occurred but this is probably not a problem')
+    console.error(e)
     storeError(e)
   }
 })
@@ -55,7 +56,8 @@ phoneParser.on('data', (data) => {
 
     state.lastPhoneState = JSON.stringify(parsedData)
   } catch (e) {
-    console.log('A json parsing error has occurred but this is probably not a problem')
+    console.log('[phoneParser] - A json parsing error has occurred but this is probably not a problem')
+    console.error(e)
     storeError(e)
   }
 })
@@ -125,19 +127,28 @@ wss.on('connection', (ws) => {
           break
         case RING_PHONE:
           phonePort.write(`${JSON.stringify({ call: true })}\n`, (err) => {
-            if (err) console.warn(err)
+            if (err) {
+              console.warn(err)
+              storeError(err)
+            }
           })
 
           break
         case MUTE_PHONE:
           phonePort.write(`${JSON.stringify({ call: false })}\n`, (err) => {
-            if (err) console.warn(err)
+            if (err) {
+              console.warn(err)
+              storeError(err)
+            }
           })
 
           break
         case HANDLE_LED:
           phonePort.write(`${JSON.stringify({ ledState: data })}\n`, (err) => {
-            if (err) console.warn(err)
+            if (err) {
+              console.warn(err)
+              storeError(err)
+            }
           })
           break
         default:
